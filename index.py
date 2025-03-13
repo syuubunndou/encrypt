@@ -12,14 +12,16 @@ cipher = Fernet(key)
 def encrypt_data():
     try:
         data = request.get_json()
-        key = data.get("key")
+        uid = data.get("UID");
+        createAt = data.get("FIREBASE_CREATE_AT"); 
 
         
-        if not uid or not create_at:
+        if not uid or not createAt:
             return jsonify({"error": "Invalid data"}), 400
         
         # ハッシュ生成
-        hashed = hashlib.sha256(key.encode()).hexdigest()
+        combined = f"{uid}{createAt}";
+        hashed = hashlib.sha256(combined.encode()).hexdigest()
         
         # 暗号化
         encrypted_data = cipher.encrypt(hashed.encode()).decode()
