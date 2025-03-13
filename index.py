@@ -12,6 +12,8 @@ cipher = Fernet(key)
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt_data():
+    print("これ見えてる？")
+    print("or is it?")
     try:
         data = request.get_json()
         uid = data.get("UID");
