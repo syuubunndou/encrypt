@@ -8,7 +8,7 @@ app = Flask(__name__)
 key = Fernet.generate_key()
 cipher = Fernet(key)
 
-@app.route('/encrypt', methods=['POST'])
+@app.route('/', methods=['POST'])
 def encrypt_data():
     try:
         data = request.get_json()
