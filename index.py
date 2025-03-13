@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import hashlib
 from cryptography.fernet import Fernet
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # CORSを有効化
 
 # 暗号化キーを生成 (実運用なら .env などで管理)
 key = Fernet.generate_key()
