@@ -10,7 +10,7 @@ CORS(app)  # CORSを有効化
 key = Fernet.generate_key()
 cipher = Fernet(key)
 
-@app.route('/', methods=['POST'])
+@app.route('/encrypt', methods=['POST'])
 def encrypt_data():
     try:
         data = request.get_json()
