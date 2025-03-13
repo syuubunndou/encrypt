@@ -31,6 +31,7 @@ def encrypt_data():
         return jsonify({"encrypted_data": encrypted_data})
     
     except Exception as e:
+        print(f"エラー発生: {e}")  # エラーメッセージを表示
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
