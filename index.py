@@ -4,7 +4,8 @@ from cryptography.fernet import Fernet
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)  # CORSを有効化
+CORS(app, resources={r"/encrypt": {"origins": "*"}})  # 必要に応じてオリジンを指定
+
 
 # 暗号化キーを生成 (実運用なら .env などで管理)
 key = Fernet.generate_key()
