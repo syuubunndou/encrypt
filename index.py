@@ -11,7 +11,7 @@ CORS(app, resources={r"/encrypt": {"origins": "*"}})  # 必要に応じてオリ
 key = Fernet.generate_key()
 cipher = Fernet(key)
 
-@app.route('/encrypt', methods=['POST'])
+@app.route('/encrypt', methods=['GET'])
 def encrypt_data():
     print("これ見えてる？")
     print("or is it?")
